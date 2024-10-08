@@ -45,6 +45,7 @@ export const CarouselThumbs = forwardRef<HTMLDivElement, BoxProps & CarouselThum
 
     return (
       <StyledRoot
+        slideSpacing={slideSpacing}
         ref={ref}
         axis={axis}
         className={carouselClasses.thumbs.concat(className ? ` ${className}` : '')}

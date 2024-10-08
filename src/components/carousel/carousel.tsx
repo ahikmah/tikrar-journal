@@ -76,6 +76,7 @@ export function Carousel({
 
   return (
     <StyledRoot
+      slideSpacing={slideSpacing}
       sx={sx}
       axis={axis}
       ref={mainRef}

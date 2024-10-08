@@ -48,7 +48,7 @@ export const navData = [
   {
     subheader: 'Tikrar Demo 0.0.1',
     items: [
-      { title: 'One', path: paths.dashboard.root, icon: ICONS.dashboard },
+      { title: 'Dashboard', path: paths.dashboard.root, icon: ICONS.dashboard },
       { title: 'Two', path: paths.dashboard.two, icon: ICONS.ecommerce },
       { title: 'Three', path: paths.dashboard.three, icon: ICONS.analytics },
     ],

@@ -11,8 +11,8 @@ import { DashboardContent } from 'src/layouts/dashboard';
 import { useAuthContext } from 'src/auth/hooks';
 
 import { DashboardGoal } from '../dashboard-goal';
-import { DashboardOffDay } from '../dashboard-off-day';
 import { DashboardWelcome } from '../dashboard-welcome';
+import { DashboardGroupCard } from '../dashboard-group-card';
 import { DashboardWidgetSummary } from '../dashboard-widget-summary';
 import { DashboardMemorizeProgress } from '../dashboard-memorize-progress';
 
@@ -74,16 +74,9 @@ export const DashboardView = () => {
         </Grid>
 
         <Grid item xs={12} md={5}>
-          <DashboardOffDay
-            title="Off Days in the Current Month"
-            subheader="Don't be discouraged, keep going!"
-            chart={{
-              colors: ['#FF5630', '#FFAB00'],
-              series: [
-                { label: 'Negligences', value: 2 },
-                { label: 'With excuses', value: 5 },
-              ],
-            }}
+          <DashboardGroupCard
+            title="Group Memorization"
+            subheader="Memorize together with your group"
           />
         </Grid>
 

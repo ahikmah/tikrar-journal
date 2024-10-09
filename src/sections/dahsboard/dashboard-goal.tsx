@@ -8,8 +8,6 @@ import { today } from 'src/utils/format-time';
 import { CONFIG } from 'src/config-global';
 import { varAlpha, bgGradient } from 'src/theme/styles';
 
-import { Label } from 'src/components/label';
-
 // ----------------------------------------------------------------------
 
 export function DashboardGoal() {
@@ -44,16 +42,15 @@ export function DashboardGoal() {
         sx={{ position: 'relative' }}
       >
         <Stack>
-          <Typography variant="h5">Target Day 61 🎯</Typography>
-          <Typography variant="subtitle2">Page: 61 - 61</Typography>
+          <Typography variant="h4">Target Day 61 🎯</Typography>
         </Stack>
 
         <Typography variant="subtitle2">{today('DD MMMM YYYY')}</Typography>
 
-        <Box sx={{ position: 'absolute', top: -30, right: -10 }}>
-          <Label variant="soft" color="default">
-            Not Started
-          </Label>
+        <Box sx={{ position: 'absolute', top: -40, right: -10 }}>
+          <Typography variant="overline" sx={{ color: 'text.secondary' }}>
+            Current Plan: 1 Page/Day
+          </Typography>
         </Box>
       </Stack>
 
@@ -64,8 +61,8 @@ export function DashboardGoal() {
         flexDirection={{ xs: 'column', md: 'row' }}
       >
         <Stack>
-          <Typography variant="h4">سورة ال عمران</Typography>
-          <Typography>Surah Ali &apos;Imran</Typography>
+          <Typography variant="h5">(٨٣-٩١) ال عمران</Typography>
+          <Typography variant="caption">Ali &apos;Imran (83-91)</Typography>
         </Stack>
         <Stack>
           <Button variant="contained" color="error">

@@ -5,13 +5,16 @@ import React from 'react';
 import { Button, Grid } from '@mui/material';
 
 import { CONFIG } from 'src/config-global';
+import { _memorizedSurah } from 'src/_mock';
 import { DashboardContent } from 'src/layouts/dashboard';
 
 import { useAuthContext } from 'src/auth/hooks';
 
 import { DashboardGoal } from '../dashboard-goal';
+import { DashboardOffDay } from '../dashboard-off-day';
 import { DashboardWelcome } from '../dashboard-welcome';
 import { DashboardWidgetSummary } from '../dashboard-widget-summary';
+import { DashboardMemorizeProgress } from '../dashboard-memorize-progress';
 
 // ----------------------------------------------------------------------
 
@@ -67,6 +70,28 @@ export const DashboardView = () => {
             unit="days"
             imgUrl={`${CONFIG.assetsDir}/assets/illustrations/illustration-thumbs-down.webp`}
             description="5 stopping excuses"
+          />
+        </Grid>
+
+        <Grid item xs={12} md={5}>
+          <DashboardOffDay
+            title="Off Days in the Current Month"
+            subheader="Don't be discouraged, keep going!"
+            chart={{
+              colors: ['#FF5630', '#FFAB00'],
+              series: [
+                { label: 'Negligences', value: 2 },
+                { label: 'With excuses', value: 5 },
+              ],
+            }}
+          />
+        </Grid>
+
+        <Grid item xs={12} md={7}>
+          <DashboardMemorizeProgress
+            title="Memorization Progress"
+            subheader="Your progress in memorizing the Qur’an"
+            list={_memorizedSurah}
           />
         </Grid>
       </Grid>

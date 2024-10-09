@@ -1,11 +1,11 @@
 import { CONFIG } from 'src/config-global';
 
-import { BlankView } from 'src/sections/blank/view';
+import { TrackerView } from 'src/sections/tracker/view';
 
 // ----------------------------------------------------------------------
 
 export const metadata = { title: `Daily Plan & Tracker | ${CONFIG.appName}` };
 
 export default function Page() {
-  return <BlankView title="Daily Plan & Tracker" />;
+  return <TrackerView />;
 }

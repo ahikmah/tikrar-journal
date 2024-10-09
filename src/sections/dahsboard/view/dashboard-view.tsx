@@ -4,6 +4,9 @@ import React from 'react';
 
 import { Button, Grid } from '@mui/material';
 
+import { paths } from 'src/routes/paths';
+import { RouterLink } from 'src/routes/components';
+
 import { CONFIG } from 'src/config-global';
 import { _memorizedSurah } from 'src/_mock';
 import { DashboardContent } from 'src/layouts/dashboard';
@@ -29,7 +32,12 @@ export const DashboardView = () => {
             title="👋🏻 السَّلَامُ عَلَيْكُمْ, أَهْلًا وَسَهْلًا"
             description={`Welcome back, ${user?.displayName}. Let's start your daily plan and improve your memorization.`}
             action={
-              <Button variant="contained" color="primary">
+              <Button
+                variant="contained"
+                color="primary"
+                component={RouterLink}
+                href={paths.main.tracker}
+              >
                 Start now
               </Button>
             }

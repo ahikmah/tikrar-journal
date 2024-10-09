@@ -49,7 +49,8 @@ export const navData = [
     subheader: 'Tikrar Demo 0.0.1',
     items: [
       { title: 'Dashboard', path: paths.main.root, icon: ICONS.dashboard },
-      { title: 'Daily Plan', path: paths.main.dailyPlan, icon: ICONS.analytics },
+      { title: 'Tracker', path: paths.main.tracker, icon: ICONS.analytics },
+      { title: 'Reports', path: paths.main.reports, icon: ICONS.file },
       { title: 'Program', path: paths.main.program, icon: ICONS.course },
       { title: 'Group', path: paths.main.group, icon: ICONS.user },
       { title: 'Journal', path: paths.main.journal, icon: ICONS.calendar },

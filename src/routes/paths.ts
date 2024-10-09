@@ -43,8 +43,9 @@ export const paths = {
   // DASHBOARD
   main: {
     root: `${ROOTS.MAIN}/dashboard`,
-    dailyPlan: `${ROOTS.MAIN}/daily-plan`,
+    tracker: `${ROOTS.MAIN}/tracker`,
     program: `${ROOTS.MAIN}/program`,
+    reports: `${ROOTS.MAIN}/reports`,
     group: `${ROOTS.MAIN}/group`,
     journal: `${ROOTS.MAIN}/journal`,
     resources: `${ROOTS.MAIN}/resources`,

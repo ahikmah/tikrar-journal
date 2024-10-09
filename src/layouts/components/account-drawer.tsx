@@ -22,8 +22,9 @@ import { Iconify } from 'src/components/iconify';
 import { Scrollbar } from 'src/components/scrollbar';
 import { AnimateAvatar } from 'src/components/animate';
 
-import { useMockedUser } from 'src/auth/hooks';
+import { useAuthContext } from 'src/auth/hooks';
 
+import { UpdatePlan } from './nav-upgrade';
 import { AccountButton } from './account-button';
 import { SignOutButton } from './sign-out-button';
 
@@ -45,7 +46,7 @@ export function AccountDrawer({ data = [], sx, ...other }: AccountDrawerProps) {
 
   const pathname = usePathname();
 
-  const { user } = useMockedUser();
+  const { user } = useAuthContext();
 
   const [open, setOpen] = useState(false);
 
@@ -106,7 +107,7 @@ export function AccountDrawer({ data = [], sx, ...other }: AccountDrawerProps) {
         </IconButton>
 
         <Scrollbar>
-          <Stack alignItems="center" sx={{ pt: 8, pb:4 }}>
+          <Stack alignItems="center" sx={{ pt: 8, pb: 4 }}>
             {renderAvatar}
 
             <Typography variant="subtitle1" noWrap sx={{ mt: 2 }}>
@@ -157,6 +158,10 @@ export function AccountDrawer({ data = [], sx, ...other }: AccountDrawerProps) {
               );
             })}
           </Stack>
+
+          <Box sx={{ px: 2.5, py: 3 }}>
+            <UpdatePlan />
+          </Box>
         </Scrollbar>
 
         <Box sx={{ p: 2.5 }}>

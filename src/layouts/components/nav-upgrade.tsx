@@ -16,12 +16,12 @@ import { varAlpha, bgGradient } from 'src/theme/styles';
 
 import { Label } from 'src/components/label';
 
-import { useMockedUser } from 'src/auth/hooks';
+import { useAuthContext } from 'src/auth/hooks';
 
 // ----------------------------------------------------------------------
 
 export function NavUpgrade({ sx, ...other }: StackProps) {
-  const { user } = useMockedUser();
+  const { user } = useAuthContext();
 
   return (
     <Stack sx={{ px: 2, py: 5, textAlign: 'center', ...sx }} {...other}>
@@ -75,7 +75,7 @@ export function NavUpgrade({ sx, ...other }: StackProps) {
 
 // ----------------------------------------------------------------------
 
-export function UpgradeBlock({ sx, ...other }: StackProps) {
+export function UpdatePlan({ sx, ...other }: StackProps) {
   return (
     <Stack
       sx={{
@@ -113,24 +113,24 @@ export function UpgradeBlock({ sx, ...other }: StackProps) {
           repeatDelay: 0,
         }}
         alt="Small Rocket"
-        src={`${CONFIG.assetsDir}/assets/illustrations/illustration-rocket-small.webp`}
-        sx={{ right: 0, width: 112, height: 112, position: 'absolute' }}
+        src={`${CONFIG.assetsDir}/assets/illustrations/illustration-goals.webp`}
+        sx={{ right: 0, width: 112, height: 110, position: 'absolute' }}
       />
 
       <Stack alignItems="flex-start" sx={{ position: 'relative' }}>
         <Box component="span" sx={{ typography: 'h5', color: 'common.white' }}>
-          35% OFF
+          1 Page per Day
         </Box>
 
         <Box
           component="span"
-          sx={{ mb: 2, mt: 0.5, color: 'common.white', typography: 'subtitle2' }}
+          sx={{ mb: 2, mt: 0.3, color: 'common.white', typography: 'subtitle2' }}
         >
-          Power up Productivity!
+          6.16% completed
         </Box>
 
         <Button variant="contained" size="small" color="warning">
-          Upgrade to Pro
+          Change Plan
         </Button>
       </Stack>
     </Stack>

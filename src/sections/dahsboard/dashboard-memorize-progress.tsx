@@ -114,7 +114,7 @@ function Item({ item, sx, ...other }: ItemProps) {
               {item.arabicName}
             </Typography>
             <Stack
-              flexDirection="row"
+              flexDirection={{ xs: 'column', md: 'row' }}
               justifyContent="space-between"
               alignItems={{ xs: 'flex-start', md: 'end' }}
             >

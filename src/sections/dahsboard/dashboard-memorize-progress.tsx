@@ -1,3 +1,5 @@
+import { useMemo } from 'react';
+
 import type { BoxProps } from '@mui/material/Box';
 import type { CardProps } from '@mui/material/Card';
 
@@ -59,6 +61,11 @@ export function DashboardMemorizeProgress({ title, subheader, list, ...other }: 
     </CustomTabs>
   );
 
+  const renderedItems = useMemo(
+    () => list.map((item) => <Item key={item.id} item={item} />),
+    [list]
+  );
+
   return (
     <Card {...other}>
       <CardHeader title={title} subheader={subheader} sx={{ mb: 3 }} />
@@ -67,9 +74,7 @@ export function DashboardMemorizeProgress({ title, subheader, list, ...other }: 
 
       <Scrollbar sx={{ minHeight: 370, maxHeight: 480 }}>
         <Box sx={{ p: 3, gap: 3, minWidth: 300, display: 'flex', flexDirection: 'column' }}>
-          {list.map((item) => (
-            <Item key={item.id} item={item} />
-          ))}
+          {renderedItems}
         </Box>
       </Scrollbar>
     </Card>

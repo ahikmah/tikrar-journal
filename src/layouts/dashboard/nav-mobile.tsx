@@ -1,6 +1,6 @@
-import type { NavSectionProps } from 'src/components/nav-section';
-
 import { useEffect } from 'react';
+
+import type { NavSectionProps } from 'src/components/nav-section';
 
 import Box from '@mui/material/Box';
 import Drawer, { drawerClasses } from '@mui/material/Drawer';

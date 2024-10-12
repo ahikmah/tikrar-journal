@@ -1,6 +1,7 @@
+import { useState } from 'react';
+
 import type { FabProps } from '@mui/material/Fab';
 
-import { useState } from 'react';
 import { useScroll, useMotionValueEvent } from 'framer-motion';
 
 import Fab from '@mui/material/Fab';

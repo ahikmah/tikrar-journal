@@ -1,6 +1,7 @@
+import { useMemo } from 'react';
+
 import type { EmblaPluginType } from 'embla-carousel';
 
-import { useMemo } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 
 import { useThumbs } from './use-thumbs';

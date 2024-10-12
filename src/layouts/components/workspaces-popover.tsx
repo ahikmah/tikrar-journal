@@ -1,8 +1,8 @@
 'use client';
 
-import type { ButtonBaseProps } from '@mui/material/ButtonBase';
-
 import { useState, useCallback } from 'react';
+
+import type { ButtonBaseProps } from '@mui/material/ButtonBase';
 
 import Box from '@mui/material/Box';
 import Avatar from '@mui/material/Avatar';

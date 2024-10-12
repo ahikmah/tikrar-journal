@@ -1,7 +1,8 @@
+import { useRef, useEffect } from 'react';
+
 import type { TypographyProps } from '@mui/material/Typography';
 import type { Variants, UseInViewOptions } from 'framer-motion';
 
-import { useRef, useEffect } from 'react';
 import { m, useInView, useAnimation } from 'framer-motion';
 
 import Box from '@mui/material/Box';

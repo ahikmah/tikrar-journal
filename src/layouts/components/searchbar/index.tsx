@@ -1,9 +1,10 @@
 'use client';
 
+import { useState, useCallback } from 'react';
+
 import type { BoxProps } from '@mui/material/Box';
 import type { NavSectionProps } from 'src/components/nav-section';
 
-import { useState, useCallback } from 'react';
 import parse from 'autosuggest-highlight/parse';
 import match from 'autosuggest-highlight/match';
 

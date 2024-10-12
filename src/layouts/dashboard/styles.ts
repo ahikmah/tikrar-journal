@@ -1,7 +1,7 @@
+import { useMemo } from 'react';
+
 import type { SettingsState } from 'src/components/settings';
 import type { Theme, CSSObject } from '@mui/material/styles';
-
-import { useMemo } from 'react';
 
 import { styled } from '@mui/material/styles';
 

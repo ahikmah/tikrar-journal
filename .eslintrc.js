@@ -72,6 +72,7 @@ module.exports = {
         type: 'line-length',
         'newlines-between': 'always',
         groups: [
+          'react',
           'style',
           'type',
           ['builtin', 'external'],
@@ -99,6 +100,7 @@ module.exports = {
             ['custom-routes']: 'src/routes/**',
             ['custom-sections']: 'src/sections/**',
             ['custom-components']: 'src/components/**',
+            ['react']: 'react',
           },
         },
         'internal-pattern': ['src/**'],

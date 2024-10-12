@@ -1,8 +1,8 @@
 'use client';
 
-import type { BoxProps } from '@mui/material/Box';
+import { forwardRef } from 'react';
 
-import {  forwardRef } from 'react';
+import type { BoxProps } from '@mui/material/Box';
 
 import Box from '@mui/material/Box';
 
@@ -11,7 +11,6 @@ import { RouterLink } from 'src/routes/components';
 import { CONFIG } from 'src/config-global';
 
 import { logoClasses } from './classes';
-
 
 // ----------------------------------------------------------------------
 
@@ -26,8 +25,6 @@ export const Logo = forwardRef<HTMLDivElement, LogoProps>(
     { width, href = '/', height, isSingle = true, disableLink = false, className, sx, ...other },
     ref
   ) => {
-
-
     const singleLogo = (
       <Box
         alt="Single logo"
@@ -47,7 +44,7 @@ export const Logo = forwardRef<HTMLDivElement, LogoProps>(
         height="100%"
       />
     );
-    
+
     const baseSize = {
       width: width ?? 55,
       height: height ?? 50,

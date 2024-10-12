@@ -2,13 +2,16 @@
 
 import { useMemo, useEffect, useCallback } from 'react';
 
+import { doc, getDoc } from 'firebase/firestore';
+import { onAuthStateChanged } from 'firebase/auth';
+
 import { useSetState } from 'src/hooks/use-set-state';
 
-import axios, { endpoints } from 'src/utils/axios';
+import axios from 'src/utils/axios';
 
-import { STORAGE_KEY } from './constant';
+import { AUTH, FIRESTORE } from 'src/lib/firebase';
+
 import { AuthContext } from '../auth-context';
-import { setSession, isValidToken } from './utils';
 
 import type { AuthState } from '../../types';
 
@@ -26,19 +29,27 @@ export function AuthProvider({ children }: Props) {
 
   const checkUserSession = useCallback(async () => {
     try {
-      const accessToken = sessionStorage.getItem(STORAGE_KEY);
+      onAuthStateChanged(AUTH, async (user: AuthState['user']) => {
+        if (user && user.emailVerified) {
+          /*
+           * (1) If skip emailVerified
+           * Remove the condition (if/else) : user.emailVerified
+           */
+          const userProfile = doc(FIRESTORE, 'users', user.uid);
 
-      if (accessToken && isValidToken(accessToken)) {
-        setSession(accessToken);
+          const docSnap = await getDoc(userProfile);
 
-        const res = await axios.get(endpoints.auth.me);
+          const profileData = docSnap.data();
 
-        const { user } = res.data;
+          const { accessToken } = user;
 
-        setState({ user: { ...user, accessToken }, loading: false });
-      } else {
-        setState({ user: null, loading: false });
-      }
+          setState({ user: { ...user, ...profileData }, loading: false });
+          axios.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
+        } else {
+          setState({ user: null, loading: false });
+          delete axios.defaults.headers.common.Authorization;
+        }
+      });
     } catch (error) {
       console.error(error);
       setState({ user: null, loading: false });
@@ -46,7 +57,6 @@ export function AuthProvider({ children }: Props) {
   }, [setState]);
 
   useEffect(() => {
-    console.log('is Checking User Session');
     checkUserSession();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -62,6 +72,10 @@ export function AuthProvider({ children }: Props) {
       user: state.user
         ? {
             ...state.user,
+            id: state.user?.uid,
+            accessToken: state.user?.accessToken,
+            displayName: state.user?.displayName,
+            photoURL: state.user?.photoURL,
             role: state.user?.role ?? 'admin',
           }
         : null,

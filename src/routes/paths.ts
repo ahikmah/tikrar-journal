@@ -50,5 +50,6 @@ export const paths = {
     journal: `${ROOTS.MAIN}/journal`,
     resources: `${ROOTS.MAIN}/resources`,
     glossary: `${ROOTS.MAIN}/glossary`,
+    quran: `${ROOTS.MAIN}/quran`,
   },
 };

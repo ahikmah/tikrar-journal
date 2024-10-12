@@ -33,10 +33,10 @@ export const fetcher = async (args: string | [string, AxiosRequestConfig]) => {
 // ----------------------------------------------------------------------
 
 export const endpoints = {
-  verse: {
+  verses: {
     byPage: '/verses/by_page',
   },
-  page: {
+  pages: {
     lookup: '/pages/lookup',
   },
 };

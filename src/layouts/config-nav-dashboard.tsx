@@ -56,6 +56,7 @@ export const navData = [
       { title: 'Journal', path: paths.main.journal, icon: ICONS.calendar },
       { title: 'Resources', path: paths.main.resources, icon: ICONS.folder },
       { title: 'Glossary', path: paths.main.glossary, icon: ICONS.label },
+      { title: 'Quran', path: paths.main.quran, icon: ICONS.kanban },
     ],
   },
 ];

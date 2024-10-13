@@ -105,7 +105,7 @@ export interface FootnoteResponse extends BaseResponse {
 }
 
 export interface PagesLookUpResponse extends BaseResponse {
-  lookupRange: LookupRange;
+  lookupRange?: LookupRange;
   pages?: Record<string, LookupRecord>;
   totalPage?: number;
 }

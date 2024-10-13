@@ -4,6 +4,8 @@ import axios from 'axios';
 
 import { CONFIG } from 'src/config-global';
 
+import { camelizeKeys } from './camelize';
+
 // ----------------------------------------------------------------------
 
 const axiosInstance = axios.create({ baseURL: CONFIG.apiQuranUrl });
@@ -23,7 +25,7 @@ export const fetcher = async (args: string | [string, AxiosRequestConfig]) => {
 
     const res = await axiosInstance.get(url, { ...config });
 
-    return res.data;
+    return camelizeKeys(res.data);
   } catch (error) {
     console.error('Failed to fetch:', error);
     throw error;

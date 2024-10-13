@@ -1,4 +1,66 @@
-import { Mushaf, MushafLines, QuranFont, QuranFontMushaf } from 'src/types/quran-reader';
+import type { VersesResponse } from 'src/types/api-quran-response';
+import type { PagesLookUpRequest } from 'src/types/api-quran-request';
+
+import {
+  Mushaf,
+  MushafLines,
+  QuranFont,
+  QuranFontMushaf,
+  QuranReaderDataType,
+} from 'src/types/quran-reader';
+
+// ----------------------------------------------------------------------
+
+export const getPageVersesParams = (mushafId: Mushaf, wordFields: { wordFields: string }) => ({
+  perPage: 'all',
+  mushaf: mushafId,
+  filterPageWords: true,
+  ...wordFields,
+});
+
+export const getPagesLookupParams = (
+  resourceId: number | string,
+  quranReaderDataType: QuranReaderDataType,
+  mushafId: number,
+  initialData?: VersesResponse
+) => {
+  const params: PagesLookUpRequest = { mushaf: mushafId };
+  const resourceIdNumber = Number(resourceId);
+  switch (quranReaderDataType) {
+    case QuranReaderDataType.Chapter:
+      params.chapterNumber = resourceIdNumber;
+      break;
+    case QuranReaderDataType.Hizb:
+      params.hizbNumber = resourceIdNumber;
+      break;
+    case QuranReaderDataType.Juz:
+      params.juzNumber = resourceIdNumber;
+      break;
+    case QuranReaderDataType.Page:
+      params.pageNumber = resourceIdNumber;
+      break;
+    case QuranReaderDataType.Rub:
+      params.rubElHizbNumber = resourceIdNumber;
+      break;
+    case QuranReaderDataType.Verse:
+      params.chapterNumber = resourceIdNumber;
+      params.from = initialData?.verses[0]?.verseKey;
+      params.to = initialData?.verses[0]?.verseKey;
+      break;
+    case QuranReaderDataType.ChapterVerseRanges:
+      params.chapterNumber = resourceIdNumber;
+      params.from = initialData?.metaData?.from;
+      params.to = initialData?.metaData?.to;
+      break;
+    case QuranReaderDataType.Ranges:
+      params.from = initialData?.pagesLookup?.lookupRange?.from;
+      params.to = initialData?.pagesLookup?.lookupRange?.to;
+      break;
+    default:
+      break;
+  }
+  return params;
+};
 
 /**
  * Get the default word fields that should exist in the response.

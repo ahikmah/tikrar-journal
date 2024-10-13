@@ -46,7 +46,6 @@ export function AuthProvider({ children }: Props) {
   }, [setState]);
 
   useEffect(() => {
-    console.log('is Checking User Session');
     checkUserSession();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
